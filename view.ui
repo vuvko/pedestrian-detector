@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>View</class>
+ <widget class="QWidget" name="View">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>542</width>
+    <height>375</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Pedestrian Detector</string>
+  </property>
+  <widget class="QTabWidget" name="mainTabWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>9</y>
+     <width>521</width>
+     <height>361</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="statusTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="accessibleName">
+    <string/>
+   </property>
+   <property name="accessibleDescription">
+    <string/>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="tcTab">
+    <attribute name="title">
+     <string>Train/Classify</string>
+    </attribute>
+    <widget class="QWidget" name="gridLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>491</width>
+       <height>321</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="tcMainGridLayout">
+      <item row="14" column="1">
+       <widget class="QLabel" name="precisionValue">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>0.0</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0" colspan="7">
+       <widget class="QLabel" name="trueLocLabel">
+        <property name="text">
+         <string>File with true pedestrian locations:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="7">
+       <widget class="QPushButton" name="dirBrowse">
+        <property name="text">
+         <string>Browse...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" colspan="7">
+       <widget class="QLabel" name="tcModelLabel">
+        <property name="text">
+         <string>Model file for save/load:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0" colspan="7">
+       <widget class="QLabel" name="predLocLabel">
+        <property name="text">
+         <string>File with predicted pedestrian locations for save/load:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="14" column="0">
+       <widget class="QLabel" name="precisionLabel">
+        <property name="text">
+         <string>Precision:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="0" colspan="7">
+       <widget class="QLineEdit" name="predLocLineEdit"/>
+      </item>
+      <item row="7" column="7">
+       <widget class="QPushButton" name="predLocBrowse">
+        <property name="text">
+         <string>Browse...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="12" column="0" colspan="8">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QPushButton" name="trainButton">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Train</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="classifyDirectoryButton">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Classify Directory</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="estimateQualityButton">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Estimate Quality</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="14" column="7">
+       <widget class="QLabel" name="fScoreValue">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>0.0</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" colspan="7">
+       <widget class="QLabel" name="dirLabel">
+        <property name="text">
+         <string>Directory for train/classify:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="7">
+       <widget class="QPushButton" name="tcModelBrowse">
+        <property name="text">
+         <string>Browse...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="14" column="3">
+       <widget class="QLabel" name="recallLabel">
+        <property name="text">
+         <string>Recall:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0" colspan="7">
+       <widget class="QLineEdit" name="dirLineEdit"/>
+      </item>
+      <item row="5" column="0" colspan="7">
+       <widget class="QLineEdit" name="trueLocLineEdit"/>
+      </item>
+      <item row="1" column="0" colspan="7">
+       <widget class="QLineEdit" name="tcModelLineEdit"/>
+      </item>
+      <item row="14" column="6">
+       <widget class="QLabel" name="fScoreLabel">
+        <property name="text">
+         <string>F-score:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="14" column="2">
+       <spacer name="prfHorizontalSpacer1">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Ignored</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="5" column="7">
+       <widget class="QPushButton" name="trueLocBrowse">
+        <property name="text">
+         <string>Browse...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="14" column="4">
+       <widget class="QLabel" name="recallValue">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>0.0</string>
+        </property>
+       </widget>
+      </item>
+      <item row="14" column="5">
+       <spacer name="prfHorizontalSpacer2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Ignored</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="10" column="0" colspan="8">
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="11" column="0" colspan="8">
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QCheckBox" name="cvCheck">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Use Cross-Validation</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="nonlinearSVM">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="text">
+           <string>Use non-linear kernel</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="bootstrapCheck">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="text">
+           <string>Enable Bootstrapping</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="siTab">
+    <attribute name="title">
+     <string>Scan Image</string>
+    </attribute>
+    <widget class="QWidget" name="gridLayoutWidget_5">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>501</width>
+       <height>324</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="siMainGridLayout">
+      <item row="2" column="0">
+       <widget class="QLabel" name="imageForScanLabel">
+        <property name="text">
+         <string>Image for scan:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLineEdit" name="imageForScanLineEdit">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QPushButton" name="imageForScanBrowse">
+        <property name="text">
+         <string>Browse...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLineEdit" name="siModelLineEdit"/>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="siModelLabel">
+        <property name="text">
+         <string>Model file:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QPushButton" name="siModelBrowse">
+        <property name="text">
+         <string>Browse...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2" rowspan="4">
+       <widget class="QPushButton" name="scanImageButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>Scan Image</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0" colspan="3">
+       <widget class="QScrollArea" name="siScrollArea">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>220</height>
+         </size>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="widgetResizable">
+         <bool>false</bool>
+        </property>
+        <widget class="QWidget" name="scrollAreaWidgetContents">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>459</width>
+           <height>199</height>
+          </rect>
+         </property>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab">
+    <attribute name="title">
+     <string>Parameters</string>
+    </attribute>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>7</x>
+       <y>5</y>
+       <width>501</width>
+       <height>56</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="1">
+       <widget class="QDoubleSpinBox" name="boundBox">
+        <property name="decimals">
+         <number>3</number>
+        </property>
+        <property name="minimum">
+         <double>-100.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>100.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.100000000000000</double>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="boundLabel">
+        <property name="text">
+         <string>Bound value</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>predLocBrowse</sender>
+   <signal>clicked()</signal>
+   <receiver>View</receiver>
+   <slot>chooseUserLocationFileButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>481</x>
+     <y>227</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>498</x>
+     <y>224</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dirBrowse</sender>
+   <signal>clicked()</signal>
+   <receiver>View</receiver>
+   <slot>chooseDirButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>413</x>
+     <y>131</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>498</x>
+     <y>111</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>trueLocBrowse</sender>
+   <signal>clicked()</signal>
+   <receiver>View</receiver>
+   <slot>chooseTrueLocationFileButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>481</x>
+     <y>179</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>498</x>
+     <y>170</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>classifyDirectoryButton</sender>
+   <signal>clicked()</signal>
+   <receiver>View</receiver>
+   <slot>classifyDirectoryButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>303</x>
+     <y>303</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>275</x>
+     <y>344</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>estimateQualityButton</sender>
+   <signal>clicked()</signal>
+   <receiver>View</receiver>
+   <slot>estimateQualityButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>345</x>
+     <y>332</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>371</x>
+     <y>344</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>scanImageButton</sender>
+   <signal>clicked()</signal>
+   <receiver>View</receiver>
+   <slot>scanImageButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>459</x>
+     <y>69</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>498</x>
+     <y>144</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>imageForScanBrowse</sender>
+   <signal>clicked()</signal>
+   <receiver>View</receiver>
+   <slot>chooseImageForScan()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>400</x>
+     <y>131</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>498</x>
+     <y>102</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tcModelBrowse</sender>
+   <signal>clicked()</signal>
+   <receiver>View</receiver>
+   <slot>chooseTCModelFileButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>433</x>
+     <y>74</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>496</x>
+     <y>5</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>siModelBrowse</sender>
+   <signal>clicked()</signal>
+   <receiver>View</receiver>
+   <slot>chooseSIModelFileButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>354</x>
+     <y>65</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>408</x>
+     <y>4</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>trainButton</sender>
+   <signal>clicked()</signal>
+   <receiver>View</receiver>
+   <slot>trainButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>27</x>
+     <y>306</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>182</x>
+     <y>344</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>chooseDirButton()</slot>
+  <slot>chooseTrueLocationFileButton()</slot>
+  <slot>trainButton()</slot>
+  <slot>chooseUserLocationFileButton()</slot>
+  <slot>classifyDirectoryButton()</slot>
+  <slot>estimateQualityButton()</slot>
+  <slot>scanImageButton()</slot>
+  <slot>chooseImageForScan()</slot>
+  <slot>chooseTCModelFileButton()</slot>
+  <slot>chooseSIModelFileButton()</slot>
+ </slots>
+</ui>
