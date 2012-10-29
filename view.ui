@@ -20,6 +20,9 @@
    <string>Pedestrian Detector</string>
   </property>
   <widget class="QTabWidget" name="mainTabWidget">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -446,16 +449,6 @@
          <string>Bound value</string>
         </property>
        </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>TextLabel</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
       </item>
      </layout>
     </widget>
