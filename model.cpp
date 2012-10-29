@@ -22,7 +22,7 @@ Model::Model()
     m_modelFileName = "";
     m_classifier = NULL;
     m_useLinear = true;
-    m_bound = -0.0;
+    m_bound = 0.3;
     m_n = 1;
     m_L = 0.27;
 }
@@ -230,13 +230,6 @@ void Model::bootstrapTrain()
             for (int k = 0; k < shifts.size(); ++k)
             {
                 QImage badExample(backgrounds[rnd].copy(shifts[k], 0, WIN_WIDTH, WIN_HEIGHT));
-                qDebug() << "Saved in:" << (QString("bad_examples/") + QString::number(i) +
-                                            QString("_") + QString::number(j) +
-                                            QString("_") + QString::number(k) + QString("_back.png"));
-                badExample.save(QString("bad_examples/") + QString::number(i) +
-                                QString("_") + QString::number(j) +
-                                QString("_") + QString::number(k) + QString("_back.png"));
-
                 m_features.push_back(computeFeatures(computeCells(badExample)));
                 m_labels.push_back(-1);
             }
@@ -247,13 +240,6 @@ void Model::bootstrapTrain()
             if (shifts.size() != 0)
             {
                 ++sizes[0];
-                qDebug() << "Saved in:" << (QString("bad_examples/") + QString::number(i) +
-                                            QString("_") + QString::number(j) + QString("_") +
-                                            QString::number(0) + QString("_ped.png"));
-                pedestrians[j].save(QString("bad_examples/") + QString::number(i) +
-                                    QString("_") + QString::number(j) + QString("_") +
-                                    QString::number(0) + QString("_ped.png"));
-
                 m_features.push_back(computeFeatures(computeCells(pedestrians[j])));
                 m_labels.push_back(1);
             }
@@ -329,7 +315,7 @@ void Model::crossValidation()
         }
     }
     qDebug() << "Cross-Validation finished. Errors:" << errors;
-    */
+    */ // code dropped... just tired.
 }
 
 QVector<int> Model::detect(const QImage &image)
@@ -361,7 +347,7 @@ QVector<int> Model::detect(const QImage &image)
         }
 
         double prob_estimates[1];  // level of confidence
-        int predicted_label = predict_values(m_classifier, x, prob_estimates);
+        predict_values(m_classifier, x, prob_estimates);
 
         if (prob_estimates[0] > m_bound)
         {
